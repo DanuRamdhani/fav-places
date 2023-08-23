@@ -28,7 +28,7 @@ final theme = ThemeData().copyWith(
   textTheme: TextTheme(
     labelLarge: GoogleFonts.oswald(),
     bodyLarge: GoogleFonts.oswald(
-      color: const Color.fromARGB(255, 250, 250, 250),
+      color: const Color.fromARGB(255, 250, 250, 250),  
     ),
     titleSmall: GoogleFonts.oswald(
       fontWeight: FontWeight.bold,
