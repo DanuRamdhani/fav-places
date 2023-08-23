@@ -29,11 +29,9 @@ class _ListPlaceState extends ConsumerState<ListPlace> {
                   key: UniqueKey(),
                   onDismissed: (direction) {
                     Timer(const Duration(milliseconds: 150), () {
-                      setState(() {
                         ref
                             .read(userPlacesProvider.notifier)
                             .deletePlace(widget.userPlaces[index].id);
-                      });
                     });
                   },
                   child: Card(
