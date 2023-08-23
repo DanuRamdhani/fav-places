@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:fav_places/models/place.dart';
+import 'package:fav_places/providers/user_places.dart';
 import 'package:fav_places/screen/place_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,8 +28,12 @@ class _ListPlaceState extends ConsumerState<ListPlace> {
                 return Dismissible(
                   key: UniqueKey(),
                   onDismissed: (direction) {
-                    setState(() {
-                      widget.userPlaces.remove(widget.userPlaces[index]);
+                    Timer(const Duration(milliseconds: 150), () {
+                      setState(() {
+                        ref
+                            .read(userPlacesProvider.notifier)
+                            .deletePlace(widget.userPlaces[index].id);
+                      });
                     });
                   },
                   child: Card(
