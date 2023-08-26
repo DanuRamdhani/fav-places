@@ -60,7 +60,6 @@ class _ImagesInputState extends State<ImagesInput> {
       builder: (context) {
         return Dialog(
           child: Wrap(
-            // spacing: 16,
             alignment: WrapAlignment.spaceEvenly,
             children: [
               TextButton.icon(

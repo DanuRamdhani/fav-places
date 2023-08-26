@@ -1,7 +1,12 @@
-import 'package:fav_places/screen/places.dart';
+import 'package:fav_places/screen/verify_email.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+import 'package:fav_places/screen/auth.dart';
 
 final colorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 24, 18, 43),
@@ -42,7 +47,12 @@ final theme = ThemeData().copyWith(
   ),
 );
 
-void main(List<String> args) {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -64,7 +74,24 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Fav Places',
       theme: theme,
-      home: const PlacesScreen(),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+
+          if (snapshot.hasData) {
+            return const VerifyEmailScreen();
+          }
+
+          return const AuthScreen();
+        },
+      ),
     );
   }
 }

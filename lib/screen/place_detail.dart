@@ -1,11 +1,13 @@
-import 'package:fav_places/models/place.dart';
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class PlaceDetailScreen extends StatelessWidget {
-  const PlaceDetailScreen({super.key, required this.userPlaces});
+  const PlaceDetailScreen({super.key, required this.documentSnapshot});
 
-  final Place userPlaces;
+  final DocumentSnapshot documentSnapshot;
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +26,19 @@ class PlaceDetailScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                    image: FileImage(userPlaces.image), fit: BoxFit.cover),
+                    image: FileImage(File(documentSnapshot['image'])),
+                    fit: BoxFit.cover),
               ),
             ),
             Text(
-              userPlaces.title,
+              documentSnapshot['title'],
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     fontSize: 32,
                   ),
             ),
             Text(
-              DateFormat.yMMMMEEEEd().format(userPlaces.date),
+              DateFormat.yMMMMEEEEd()
+                  .format((documentSnapshot['date'] as Timestamp).toDate()),
               style: Theme.of(context).textTheme.titleSmall!.copyWith(),
             )
           ],

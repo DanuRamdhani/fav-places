@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "997979588709",
+    "project_id": "fav-places-6b93a",
+    "storage_bucket": "fav-places-6b93a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997979588709:android:9922997d59741c0d521e8c",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997979588709-aev6ju9rjl1m1kok9udivgq6anrif1rm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.application",
+            "certificate_hash": "7f91dd27c504a12afedf8a9b37986614bcdd2b15"
+          }
+        },
+        {
+          "client_id": "997979588709-5ii6m3684o80mkq8nit5sh43ndndlndi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUGb5H5FGG69vEJ039KZihIvpf_uqT4xM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "997979588709-5ii6m3684o80mkq8nit5sh43ndndlndi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "997979588709-alpiepnggcrss9vsulmtc5ld8rrjubrb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.favPlaces"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997979588709:android:c12cb00419e89664521e8c",
+        "android_client_info": {
+          "package_name": "com.example.fav_places"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997979588709-5ii6m3684o80mkq8nit5sh43ndndlndi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUGb5H5FGG69vEJ039KZihIvpf_uqT4xM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "997979588709-5ii6m3684o80mkq8nit5sh43ndndlndi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "997979588709-alpiepnggcrss9vsulmtc5ld8rrjubrb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.favPlaces"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

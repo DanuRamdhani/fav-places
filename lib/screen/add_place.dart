@@ -1,11 +1,13 @@
 import 'dart:io';
 
-import 'package:fav_places/providers/user_places.dart';
-import 'package:fav_places/widgets/image_input.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:fav_places/screen/auth.dart';
+import 'package:fav_places/widgets/image_input.dart';
 
 class AddPlace extends ConsumerStatefulWidget {
   const AddPlace({super.key});
@@ -18,6 +20,11 @@ class _AddPlaceState extends ConsumerState<AddPlace> {
   TextEditingController titleControler = TextEditingController();
   DateTime? selectedDate;
   File? image;
+
+  final CollectionReference _place = FirebaseFirestore.instance
+      .collection('users')
+      .doc(firebase.currentUser!.uid)
+      .collection('places');
 
   void selectDate() {
     showDatePicker(
@@ -37,12 +44,11 @@ class _AddPlaceState extends ConsumerState<AddPlace> {
       return;
     }
 
-
-    ref.read(userPlacesProvider.notifier).addPlace(
-          titleControler.text,
-          File(image!.path),
-          selectedDate!,
-        );
+    _place.add({
+      'title': titleControler.text,
+      'date': selectedDate,
+      'image': image!.path,
+    });
 
     Navigator.of(context).pop();
   }
