@@ -40,10 +40,17 @@ dependencies:
   intl: ^0.18.1
   flutter_riverpod: ^2.3.7
   image_picker: ^1.0.2
+<<<<<<< HEAD
   cloud_firestore: ^4.9.0
   firebase_auth: ^4.8.0
   google_sign_in: ^6.1.4
   firebase_core: ^2.15.1
+=======
+  path_provider: ^2.1.0
+  path: ^1.8.3
+  sqflite: ^2.3.0
+  uuid: ^3.0.7
+>>>>>>> 37c5772577c783bc7e13c656e1535b6cdb474596
 
 dev_dependencies:
   flutter_test:
