@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-=======
-import 'dart:async';
-
-import 'package:fav_places/models/place.dart';
-import 'package:fav_places/providers/user_places.dart';
->>>>>>> 37c5772577c783bc7e13c656e1535b6cdb474596
 import 'package:fav_places/screen/place_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -73,15 +66,7 @@ class _ListPlaceState extends State<ListPlace> {
                   key: UniqueKey(),
                   direction: DismissDirection.endToStart,
                   onDismissed: (direction) {
-<<<<<<< HEAD
                     _place.doc(documentSnapshot.id).delete();
-=======
-                    Timer(const Duration(milliseconds: 150), () {
-                        ref
-                            .read(userPlacesProvider.notifier)
-                            .deletePlace(widget.userPlaces[index].id);
-                    });
->>>>>>> 37c5772577c783bc7e13c656e1535b6cdb474596
                   },
                   background: Container(
                     decoration: BoxDecoration(
