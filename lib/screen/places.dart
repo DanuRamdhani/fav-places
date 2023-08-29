@@ -14,15 +14,6 @@ class PlacesScreen extends ConsumerStatefulWidget {
 }
 
 class _PlacesScreenState extends ConsumerState<PlacesScreen> {
-late Future<void> _placesFuture;
-
-@override
-  void initState() {
-    super.initState();
-    _placesFuture = ref.read(userPlacesProvider.notifier).loadPlaces();
-  }
-
-
   @override
   Widget build(BuildContext context) {
     final userPlaces = ref.watch(userPlacesProvider);
@@ -50,7 +41,8 @@ late Future<void> _placesFuture;
             child: TabBar(
               indicatorSize: TabBarIndicatorSize.tab,
               indicatorWeight: 3,
-              unselectedLabelColor: Theme.of(context).colorScheme.primary.withOpacity(0.8),
+              unselectedLabelColor:
+                  Theme.of(context).colorScheme.primary.withOpacity(0.8),
               tabs: const [
                 Tab(
                   icon: FaIcon(FontAwesomeIcons.solidImages),
@@ -71,30 +63,6 @@ late Future<void> _placesFuture;
           ],
         ),
       ),
-<<<<<<< HEAD
-=======
-      body: FutureBuilder(
-        future: _placesFuture,
-        builder: (context, snapshot) =>
-            snapshot.connectionState == ConnectionState.waiting
-                ? const Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : ListPlace(userPlaces: userPlaces),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const AddPlace(),
-            ),
-          );
-        },
-        shape: const CircleBorder(),
-        child: const FaIcon(FontAwesomeIcons.plus),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
->>>>>>> 37c5772577c783bc7e13c656e1535b6cdb474596
     );
   }
 }
